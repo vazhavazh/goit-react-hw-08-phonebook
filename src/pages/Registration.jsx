@@ -23,15 +23,10 @@ export default function Registration() {
     <div>
       <h1>Registration</h1>
       <form onSubmit={handleSubmit}>
-        <input label="Name"  name="name" type="text" />
-        <input label="Email"  name="email" type="text" />
-        <input
-          label="Passwordl"
-          
-          name="password"
-          type="password"
-        />
-        <button variant="contained"  type="submit">
+        <input label="Name" name="name" type="text" />
+        <input label="Email" name="email" type="text" />
+        <input label="Passwordl" name="password" type="password" />
+        <button variant="contained" type="submit">
           SignUP
         </button>
       </form>

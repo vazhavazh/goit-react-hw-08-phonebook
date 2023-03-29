@@ -9,10 +9,10 @@ import { PublicRoute } from 'redux/hoc/PublicRoute';
 
 
 
-const Home = lazy(() => import('../pages/Home/Home'));
-const Registration = lazy(() => import('../pages/Registration/Registration'));
-const Login = lazy(() => import('../pages/Login/Login'));
-const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
+const Home = lazy(() => import('../pages/Home'));
+const Registration = lazy(() => import('../pages/Registration'));
+const Login = lazy(() => import('../pages/Login'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
