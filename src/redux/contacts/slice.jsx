@@ -1,24 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchAllContacts,
-  addContact,
-  deleteContact,
-} from './contactOperations';
+import { fetchAllContacts, addContact, deleteContact } from './operations';
+import { logOut } from '../auth/operations';
 
-const contactsInitialState = {
-  contacts: {
-    items: [],
-    isLoading: false,
-    error: null,
+
+const contactsSlice = createSlice({
+  name: '@@phoneBook',
+  initialState: {
+    contacts: { items: [], isLoading: false, error: null },
+    filter: '',
   },
-  filter: '',
-};
-
-export const contactsSlice = createSlice({
-  name: 'contactsSlice',
-  initialState: contactsInitialState,
   reducers: {
-    userFilter(state, action) {
+    changeFilter(state, action) {
       state.filter = action.payload;
     },
   },
@@ -32,13 +24,17 @@ export const contactsSlice = createSlice({
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         const itemIndex = state.contacts.items.findIndex(
-          contact => contact.id === action.payload
+          item => item.id === action.payload.id
         );
         state.contacts.items.splice(itemIndex, 1);
       })
+      .addCase(logOut.fulfilled, state => {
+        state.contacts.items = [];
+      })
+
       .addMatcher(
         action => action.type.endsWith('/pending'),
-        (state, action) => {
+        state => {
           state.contacts.isLoading = true;
           state.contacts.error = null;
         }
@@ -52,12 +48,12 @@ export const contactsSlice = createSlice({
       )
       .addMatcher(
         action => action.type.endsWith('/fulfilled'),
-        (state, action) => {
+        state => {
           state.contacts.isLoading = false;
           state.contacts.error = null;
         }
       );
   },
 });
-
+export const phonebookReducer = contactsSlice.reducer;
 export const { userFilter } = contactsSlice.actions;

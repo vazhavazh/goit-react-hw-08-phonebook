@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contact/contactOperations';
-import {selectContactsItems} from 'redux/contact/contactsSelectors'
+import { addContact } from 'redux/contacts/operations';
+import { selectContactsItems } from 'redux/contacts/selectors';
 import {
   Form,
   InputContainers,
@@ -18,7 +18,7 @@ export const ContactForm = () => {
     const form = e.target;
     const nameValue = e.target.elements.name.value;
     const numberValue = e.target.elements.number.value;
-    
+
     const existingContact = contacts.find(
       contact => contact.name === nameValue
     );
