@@ -41,17 +41,9 @@ export default function Registration() {
             required
           />
           <LabelStyled>Email</LabelStyled>
-          <InputStyled
-            name="email"
-            type="text"
-           
-          />
+          <InputStyled name="email" type="text" required />
           <LabelStyled>Password</LabelStyled>
-          <InputStyled
-            name="password"
-            type="password"
-            
-          />
+          <InputStyled name="password" type="password" required />
         </InputContainers>
         <Button type="submit">SignUp</Button>
       </Form>
