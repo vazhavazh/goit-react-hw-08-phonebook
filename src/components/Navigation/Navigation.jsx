@@ -12,7 +12,7 @@ export const Navigation = () => {
   const isLoggedin = useSelector(selectIsLoggedIn);
   const name = useSelector(state => state.auth.user.name);
   return (
-    <header className="">
+    <header>
       <div>
         <Link to="/">Home</Link>
         {isLoggedin && <Link to="/contacts">Phonebook</Link>}
@@ -21,7 +21,7 @@ export const Navigation = () => {
       {!isLoggedin ? (
         <div>
           <Link to="/login">log In</Link>
-          <Link to="/register">Register</Link>
+          <Link to="/register">Registration</Link>
         </div>
       ) : (
         <div className="">

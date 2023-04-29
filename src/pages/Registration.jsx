@@ -1,6 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from 'redux/auth/operations';
+import {
+  RegistrationWrapper,
+  Form,
+  Button,
+  InputContainers,
+  LabelStyled,
+  InputStyled,
+} from './pagesStyled';
 
 export default function Registration() {
   const dispatch = useDispatch();
@@ -20,16 +28,33 @@ export default function Registration() {
   };
 
   return (
-    <div>
+    <RegistrationWrapper>
       <h1>Registration</h1>
-      <form onSubmit={handleSubmit}>
-        <input label="Name" name="name" type="text" />
-        <input label="Email" name="email" type="text" />
-        <input label="Passwordl" name="password" type="password" />
-        <button variant="contained" type="submit">
-          SignUP
-        </button>
-      </form>
-    </div>
+      <Form onSubmit={handleSubmit}>
+        <InputContainers>
+          <LabelStyled>Name</LabelStyled>
+          <InputStyled
+            name="name"
+            type="text"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+          <LabelStyled>Email</LabelStyled>
+          <InputStyled
+            name="email"
+            type="text"
+           
+          />
+          <LabelStyled>Password</LabelStyled>
+          <InputStyled
+            name="password"
+            type="password"
+            
+          />
+        </InputContainers>
+        <Button type="submit">SignUp</Button>
+      </Form>
+    </RegistrationWrapper>
   );
 }
