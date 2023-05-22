@@ -4,21 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'redux/auth/operations';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 
-
-
-
-
-
-
-
 import {
   Header,
   Span,
   LogoutButton,
   WelcomeContainer,
-
 } from './NavigationStyled';
-
 
 export const Navigation = () => {
   const dispatch = useDispatch();
