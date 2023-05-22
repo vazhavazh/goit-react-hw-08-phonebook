@@ -42,6 +42,7 @@ export const Navigation = () => {
         <WelcomeContainer>
           <Span>Welcome, {name}</Span>
           <LogoutButton
+            type="button"
             onClick={() => {
               dispatch(logOut());
               navigate('/');
