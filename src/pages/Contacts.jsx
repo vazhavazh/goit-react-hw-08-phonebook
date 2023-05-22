@@ -10,7 +10,12 @@ import { selectToken } from 'redux/auth/selectors';
 import { ContactList } from '../components/ContactList/ContactList';
 import { ContactForm } from '../components/ContactForm/ContactForm';
 import { Filter } from '../components/Filter/Filter';
-
+  import {
+    WrapperHome,
+    // WrapperHome2,
+    H2Home,
+    // LabelStyled,
+  } from './pagesStyled';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -19,26 +24,29 @@ export const Contacts = () => {
   const token = useSelector(selectToken);
   const contactsList = useSelector(applayFilter);
 
+
+
+
   useEffect(() => {
     token && dispatch(fetchAllContacts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   return (
-    <div>
-      <h2>Phonebook</h2>
+    <WrapperHome>
+      <H2Home>Phonebook</H2Home>
       <ContactForm />
 
       <Filter />
       {contactsList.length === 0 ? (
-        <h2>Add your contacts</h2>
+        <H2Home>Add your contacts</H2Home>
       ) : (
-        <h2>Contacts</h2>
+        <H2Home>Contacts</H2Home>
       )}
 
       {isLoading && !error && <b>Request in progress...</b>}
       <ContactList />
-    </div>
+    </WrapperHome>
   );
 };
 

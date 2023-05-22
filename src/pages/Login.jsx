@@ -2,6 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
+import {
+  RegistrationWrapper,
+  Form,
+  Button,
+  InputContainers,
+  LabelStyled,
+  InputStyled,
+} from './pagesStyled';
+
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,14 +32,19 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>login</h1>
-      <form onSubmit={handleSubmit}>
-        <input label="Email" name="email" placeholder="email" type="text" />
-        <input label="Passwordl" name="password" type="password" />
-        <button type="submit">Log In</button>
-      </form>
-    </div>
+    <RegistrationWrapper>
+      <h1>Login</h1>
+      <Form onSubmit={handleSubmit}>
+        <InputContainers>
+          <LabelStyled>Email</LabelStyled>
+          <InputStyled name="email" type="text" required />
+          <LabelStyled>Password</LabelStyled>
+          <InputStyled name="password" type="password" required />
+        </InputContainers>
+
+        <Button type="submit">Log In</Button>
+      </Form>
+    </RegistrationWrapper>
   );
 }
 

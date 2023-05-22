@@ -67,3 +67,23 @@ export const Button = styled.button`
     background-color: #0022cc;
   }
 `;
+
+export const H1Home = styled.h1`
+  text-align: center;
+`;
+export const H2Home = styled.h2`
+  text-align: center;
+`;
+export const WrapperHome = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+`;
+
+export const WrapperHome2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;

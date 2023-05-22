@@ -4,7 +4,7 @@ export const Form = styled.form`
   border: 3px solid black;
   border-radius: 5px;
   padding: 16px;
-  max-width: 60vh;
+  min-width: 60vh;
   margin-bottom: 24px;
 `;
 
@@ -31,7 +31,7 @@ export const InputStyled = styled.input`
   font-size: 16px;
   padding: 8px;
   border: 1px solid #ccc;
-  width: 200px;
+  min-width: 200px;
   &:hover,
   &:focus,
   &:active {
