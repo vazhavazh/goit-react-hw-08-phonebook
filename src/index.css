@@ -5,3 +5,50 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.my-link {
+    font-size: 16px;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #0080ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover,
+  &:focus {
+    background-color: #0022cc;
+}
+}
+
+.my-link2 {
+    font-size: 16px;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #f6ff00;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover,
+  &:focus {
+    background-color: #c7ce01;
+}
+}
+.my-link3 {
+  font-size: 16px;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #00ff08;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover,
+  &:focus {
+    background-color: #018606;
+}
+}

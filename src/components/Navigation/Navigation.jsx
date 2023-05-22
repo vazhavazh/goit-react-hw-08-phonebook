@@ -4,6 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'redux/auth/operations';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 
+import {
+  Header,
+  Span,
+  LogoutButton,
+  WelcomeContainer,
+
+} from './NavigationStyled';
 
 
 export const Navigation = () => {
@@ -12,30 +19,40 @@ export const Navigation = () => {
   const isLoggedin = useSelector(selectIsLoggedIn);
   const name = useSelector(state => state.auth.user.name);
   return (
-    <header>
-      <div>
-        <Link to="/">Home</Link>
-        {isLoggedin && <Link to="/contacts">Phonebook</Link>}
-      </div>
+    <Header>
+      <WelcomeContainer>
+        <Link to="/" className="my-link3">
+          Home
+        </Link>
+        {isLoggedin && (
+          <Link to="/contacts" className="my-link">
+            Phonebook
+          </Link>
+        )}
+      </WelcomeContainer>
 
       {!isLoggedin ? (
-        <div>
-          <Link to="/login">log In</Link>
-          <Link to="/register">Registration</Link>
-        </div>
+        <WelcomeContainer>
+          <Link to="/login" className="my-link">
+            Log In
+          </Link>
+          <Link to="/register" className="my-link2">
+            Registration
+          </Link>
+        </WelcomeContainer>
       ) : (
-        <div className="">
-          <span>Welcome, {name}</span>
-          <button
+        <WelcomeContainer>
+          <Span>Welcome, {name}</Span>
+          <LogoutButton
             onClick={() => {
               dispatch(logOut());
               navigate('/');
             }}
           >
             Log Out
-          </button>
-        </div>
+          </LogoutButton>
+        </WelcomeContainer>
       )}
-    </header>
+    </Header>
   );
 };
